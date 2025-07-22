@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Chef's Pal Website</title>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar flex justify-between items-center px-32 py-6 bg-[#f5f8fa] border-b-2 border-[#ccc]">
+    <!-- Logo -->
+    <img src="Images/Logo.png" alt="Logo" class="w-32">
+    <!-- Nav Items -->
+    <ul class="nav-items flex items-center gap-4 relative text-xl">
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="favourite-recipes-btn">Favourite Recipes</a></li>
+      <li><a href="#">Meal Plans</a></li>
+      <!-- Favourite Reciopes Modal -->
+      <div id="favourite-Recipes" class="absolute top-10 left-5 bg-white shadow w-80 text-center z-10 px-3 py-5 rounded-2xl hidden">
+        <h2 class="font-medium text-2xl">Favourite Recipes</h2>
+        <div class="fav-recipe flex justify-between items-center mt-5">
+          <div class="fav-recipe-info flex gap-3 items-center">
+          <img src="Images/Depth 7, Frame 0.png" alt="" class="w-16">
+          <h2>Recipe</h2>
+          </div>
+          <i class="fa-solid fa-trash text-red-600 cursor-pointer"></i>
+        </div>
+      </div>
+    </ul>
+  </nav>
+
+  <!-- Search Bar Section -->
+<section class="search my-16">
+    <form id="search-form" class="mx-auto max-w-6xl relative">
+        <input type="text" id="meal-search-input" class="meal-input bg-[#F5F2F0] w-full py-4 pl-8 rounded-full outline-none" placeholder="Search For Meal">
+        <button type="submit" id="search-button" class="absolute right-5 top-1/2 -translate-y-1/2 bg-[#8A6E61] text-white px-6 py-2 rounded-full hover:bg-[#A38D80] transition-colors cursor-pointer">Search</button>
+    </form>
+</section>
+
+  <!-- Popular Recipes Section -->
+<section class="popular-recipes mx-auto max-w-6xl px-10">
+    <h2 class="font-bold text-4xl">Popular Recipes</h2>
+    <div id="popular-recipes-container" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- The Results Will Apper Here -->
+    </div>
+</section>
+
+<!-- recipe Information -->
+<div id="recipe-info" class="recipe-info bg-white shadow absolute flex flex-col gap-10 hidden">
+  <div class="recipe-image h-1/2 w-full">
+    <img src="Images/Depth 7, Frame 0.png" alt="Recipe Image" class="h-full w-full">
+  </div>
+  <div class="recipe-details px-8">
+    <h2 class="recipe-title font-bold text-3xl">Name</h2>
+    <ul class="recipe-ingrediants">
+      <li></li>
+    </ul>
+    <h3 class="recipe-instructions font-bold text-3xl">Instruction</h3>
+    <p>Instruction</p>
+    <a href="">View Source</a>
+    <a href="">Recipe On Youtube</a>
+  </div>
+</div>
+<button></button>
+
+<div class="overlay hidden"></div>
+  <script src="script.js"></script>
+</body>
+</html>
