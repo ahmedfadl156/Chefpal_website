@@ -8,6 +8,17 @@ const favRecipesBtn = document.querySelector('.favourite-recipes-btn')
 const favouriteRecipesModal = document.getElementById('favourite-Recipes')
 let favouriteRecipes = [];
 
+// Menu NavBar
+document.getElementById('burger').addEventListener('change', function () {
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (this.checked) {
+    mobileMenu.classList.add('show');
+  } else {
+    mobileMenu.classList.remove('show');
+  }
+});
+
+
 // Function To Get Data From "The MealDB"
 async function getRandomRecipes(numberOfRecipes = 12) {
   try {

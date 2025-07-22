@@ -11,26 +11,44 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar flex justify-between items-center px-32 py-6 bg-[#f5f8fa] border-b-2 border-[#ccc]">
-    <!-- Logo -->
-    <img src="Images/Logo.png" alt="Logo" class="w-32">
-    <!-- Nav Items -->
-    <ul class="nav-items flex items-center gap-4 relative text-xl">
-      <li><a href="#">Home</a></li>
-      <li><a href="#" class="favourite-recipes-btn">Favourite Recipes</a></li>
-      <!-- Favourite Reciopes Modal -->
-      <div id="favourite-Recipes" class="absolute top-10 left-5 bg-white shadow w-80 text-center z-10 px-3 py-5 rounded-2xl hidden">
-        <h2 class="font-medium text-2xl">Favourite Recipes</h2>
-        <!-- <div class="fav-recipe flex justify-between items-center mt-5">
-          <div class="fav-recipe-info flex gap-3 items-center">
+<nav class="navbar flex justify-between items-center px-4 md:px-32 py-6 bg-[#f5f8fa] border-b-2 border-[#ccc]">
+  <!-- Logo -->
+  <img src="Images/Logo.png" alt="Logo" class="w-24 md:w-32">
+  
+  <!-- Nav Items for Desktop -->
+  <ul class="nav-items flex items-center gap-4 relative text-xl hidden md:flex">
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="favourite-recipes-btn">Favourite Recipes</a></li>
+    <!-- Favourite Recipes Modal -->
+    <div id="favourite-Recipes" class="absolute top-10 left-5 bg-white shadow w-80 text-center z-20 px-3 py-5 rounded-2xl hidden">
+      <h2 class="font-medium text-2xl">Favourite Recipes</h2>
+      <!-- Example Recipe (Uncomment if needed) -->
+      <!-- <div class="fav-recipe flex justify-between items-center mt-5">
+        <div class="fav-recipe-info flex gap-3 items-center">
           <img src="Images/Depth 7, Frame 0.png" alt="" class="w-16">
           <h2>Recipe</h2>
-          </div>
-          <i class="fa-solid fa-trash text-red-600 cursor-pointer"></i>
-        </div> -->
-      </div>
+        </div>
+        <i class="fa-solid fa-trash text-red-600 cursor-pointer"></i>
+      </div> -->
+    </div>
+  </ul>
+
+  <!-- Burger Menu for Mobile -->
+  <label class="burger lg:hidden" for="burger">
+    <input type="checkbox" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-[#f5f8fa] absolute top-16 left-0 w-full shadow-lg z-10">
+    <ul class="flex flex-col items-center gap-4 py-6 text-xl">
+      <li><a href="#" class="hover:text-gray-600">Home</a></li>
+      <li><a href="#" class="favourite-recipes-btn hover:text-gray-600">Favourite Recipes</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
   <!-- Search Bar Section -->
 <section class="search my-16">
