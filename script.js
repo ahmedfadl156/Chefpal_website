@@ -9,24 +9,33 @@ const favouriteRecipesModal = document.getElementById('favourite-Recipes')
 let favouriteRecipes = [];
 
 // Function To Get Data From "The MealDB"
-async function getRandomRecipes(){
+async function getRandomRecipes(numberOfRecipes = 12) {
   try {
-  const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
-  const data = await response.json();
-  // Check Status
-  if(!response.ok) throw new Error(`There Is An Error While Fectching Data ${response.status}`)
-  // Message If There Is No Meals
-  if(!data.meals || data.meals.length === 0){
-    recipesContainer.innerHTML = '<p class="text-center text-gray-600">No recipe found. Please try again.</p>';
-    return;
-  }
-  // Destructure Recipe
-  const [recipe] = data.meals;
-  displayRecipes(data.meals ? [data.meals[0]] : []);
-  console.log(response)
-  console.log(data)
+    const recipes = [];
+    // Fetch multiple random recipes
+    for (let i = 0; i < numberOfRecipes; i++) {
+      const response = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
+      if (!response.ok) {
+        throw new Error(`Error fetching recipe ${i + 1}: ${response.status}`);
+      }
+      const data = await response.json();
+      if (data.meals && data.meals.length > 0) {
+        recipes.push(data.meals[0]);
+      }
+    }
+
+    // Check if any recipes were fetched
+    if (recipes.length === 0) {
+      recipesContainer.innerHTML = '<p class="text-center text-gray-600">No recipes found. Please try again.</p>';
+      return;
+    }
+
+    // Display the fetched recipes
+    displayRecipes(recipes);
+
   } catch (error) {
-    recipesContainer.innerHTML = '<p class="text-center text-red-500">Failed to load recipe. Please check your internet connection.</p>'; 
+    recipesContainer.innerHTML = '<p class="text-center text-red-500">Failed to load recipes. Please check your internet connection.</p>';
+    console.error('Error:', error);
   }
 }
 
